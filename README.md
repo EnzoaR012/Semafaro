@@ -64,9 +64,18 @@ O semáforo segue esta lógica:
 </div>
 <br>
 
----
+### Processo de montagem 
 
-## 4. Código do Semáforo (POO)
+1. Conectei o Arduino à protoboard.
+2. Coloquei os três LEDs na protoboard (ordem: vermelho, amarelo, verde).
+3. Liguei o **LED vermelho** ao **pino digital 8** do Arduino, com resistor em série para o GND.
+4. Liguei o **LED amarelo** ao **pino digital 9** do Arduino, com resistor em série para o GND.
+5. Liguei o **LED verde** ao **pino digital 10** do Arduino, com resistor em série para o GND.
+6. Fiz um GND comum na protoboard ligado ao GND do Arduino.
+7. Enviei o código para o Arduino e testei os tempos (vermelho 6 s, verde 4 s, amarelo 2 s).
+
+
+## 4. Código do Semáforo 
 
 ```cpp
 // tempos em milissegundos
@@ -74,9 +83,9 @@ const unsigned long TEMPO_VERMELHO = 6000; // 6 s
 const unsigned long TEMPO_VERDE    = 4000; // 4 s
 const unsigned long TEMPO_AMARELO  = 2000; // 2 s
 
-const int PINO_VERMELHO = 13;
-const int PINO_AMARELO  = 12;
-const int PINO_VERDE    = 11;
+const int PINO_VERMELHO = 8;
+const int PINO_AMARELO  = 9;
+const int PINO_VERDE    = 10;
 
 class Luz {
   int pino;
@@ -125,3 +134,4 @@ void setup() {
 void loop() {
   semaforo.ciclo();
 }
+
